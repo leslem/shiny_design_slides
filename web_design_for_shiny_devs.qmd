@@ -1,0 +1,79 @@
+---
+title: "Web design for Shiny developers"
+subtitle: "HTML, CSS, Bootstrap, and `bslib`"
+author: "Leslie Emery"
+format: revealjs
+---
+
+## Topics
+
+- HTML
+- CSS
+- Bootstrap
+- How Shiny uses html, CSS, and Bootstrap
+- bslib
+
+
+## HTML (1993)
+
+- HTML = "HyperText Markup Language"
+- Markup language = formatting and structure information embedded into text
+  - others include LaTeX, XML, markdown
+- [My favorite HTML resource](https://www.w3schools.com/html/default.asp)
+- Using Word docs as a metaphor, HTML is the separation of text/content into different groupings: titles, headings, tables, sections, images, etc.
+- Build a web site with only HTML
+- HTML 5 vs. older versions
+
+
+## CSS (1996)
+
+- CSS = "Cascading Style Sheets"
+- Language to define styles -- separate content and presentation
+- [My favorite CSS resource](https://www.w3schools.com/css/default.asp)
+- Using Word docs as a metaphor, CSS is the definition a style for each kind of content grouping: table style, title style, paragraph style, etc.
+- Build a web site with HTML + CSS
+
+
+## Boostrap (2011)
+
+- [My favorite Bootstrap resource](https://www.w3schools.com/bootstrap/bootstrap_ver.asp)
+- [Official Boostrap documentation](https://getbootstrap.com)
+
+- Build a web site with HTML + Boostrap CSS etc.
+
+
+## Bootstrap and Shiny
+
+- [Masthing Shiny chapter 8](https://mastering-shiny.org/action-layout.html#bootstrap)
+
+
+## `bslib`
+
+- 
+- [`bslib` documentation](https://rstudio.github.io/bslib/index.html)
+- [Towards the next gen. of Shiny UI (talk by Carson Sievert)](https://youtu.be/ZIIH8WBHlLc)
+
+
+## Build a Shiny app *without* Bootstrap or any built in CSS
+
+- [RStudio article](https://shiny.rstudio.com/articles/html-ui.html)
+- Why would you want to do this?
+  - Make your Shiny app look like one page integrated into a production-grade, professionally designed web site
+  - You already know CSS and the Shiny defaults just keep getting in your way
+  - You like extra work??? `¯\_(ツ)_/¯`
+
+
+## Browsers are weird
+
+- Every web browser uses its own code base to parse and process HTML, CSS, etc.
+- 
+- Web browsers use their own style sheets! [Demo here](https://browserdefaultstyles.com/)
+- 
+
+
+
+## Using your browser's inspector
+
+- Safari:
+- Chrome: 
+- Edge: 
