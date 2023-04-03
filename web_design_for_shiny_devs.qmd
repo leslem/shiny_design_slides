@@ -2,7 +2,11 @@
 title: "Web design for Shiny developers"
 subtitle: "HTML, CSS, Bootstrap, and `bslib`"
 author: "Leslie Emery"
-format: revealjs
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    theme: dark
 ---
 
 ## Topics
@@ -20,38 +24,84 @@ format: revealjs
 - Markup language = formatting and structure information embedded into text
   - others include LaTeX, XML, markdown
 - [My favorite HTML resource](https://www.w3schools.com/html/default.asp)
-- Using Word docs as a metaphor, HTML is the separation of text/content into different groupings: titles, headings, tables, sections, images, etc.
-- Build a web site with only HTML
-- HTML 5 vs. older versions
+- A few highlights:
+  - Headers
+  - Links ("anchors")
+  - Tables
+  - Paragraphs
+- DEMO: HTML-only web page
+- In Shiny: the UI elements product HTML, and many correspond directly to HTML elements
+  - You can use `htmltools::tags` to get many HTML elements that aren't included in Shiny
+    - e.g. `htmltools::tags$table`, `$tr`, `$th`, `$td` to make a table manually
+    - [Documentation](https://shiny.rstudio.com/reference/shiny/1.7.4/builder.html), but the list of available tags is incomplete
 
 
 ## CSS (1996)
 
 - CSS = "Cascading Style Sheets"
 - Language to define styles -- separate content and presentation
+  - Similar to defining styles in Word, or LaTeX themes
 - [My favorite CSS resource](https://www.w3schools.com/css/default.asp)
-- Using Word docs as a metaphor, CSS is the definition a style for each kind of content grouping: table style, title style, paragraph style, etc.
-- Build a web site with HTML + CSS
+- [Example of webpage with different CSS stylesheets](https://www.w3schools.com/css/css_intro.asp)
+
+
+## Where to use CSS?
+
+- [More information here](https://www.w3schools.com/html/html_css.asp)
+- Inline: in the style attribute of any HTML element
+- Internal: in the style element of the HTML document `<head>` section
+- External: in a standalone CSS stylesheet file
+- DEMO: add CSS to our example webpage
+- In Shiny, you can add a `style` attribute to any UI element, e.g. `p("Some example text", style="color: blue; font-size: 20px;")`
+  - This is useful if the built in styling is mostly working, but you want to make one or two small changes to it
 
 
 ## Boostrap (2011)
 
-- [My favorite Bootstrap resource](https://www.w3schools.com/bootstrap/bootstrap_ver.asp)
+- Bootstrap is an extremely popular open source front-end framework
+  - Developed by Twitter employees (long since not working there), but not sponsored by the company and in practice entirely independent
 - [Official Boostrap documentation](https://getbootstrap.com)
-
-- Build a web site with HTML + Boostrap CSS etc.
+- Bootstrap includes:
+  - Responsive layout system
+  - CSS style definitions, e.g. contextual colors, buttons, etc.
+  - Modern-looking components, e.g. accordion, cards, modals, collapse, list groups, etc.
+  - Optional JavaScript interactivity, e.g. popovers, tooltips, etc.
+  - Icons
+- [My favorite Bootstrap resource](https://www.w3schools.com/bootstrap/bootstrap_ver.asp)
+- DEMO: Add Bootstrap style to our example web page
 
 
 ## Bootstrap and Shiny
 
-- [Masthing Shiny chapter 8](https://mastering-shiny.org/action-layout.html#bootstrap)
+- [Mastering Shiny chapter 8](https://mastering-shiny.org/action-layout.html#bootstrap)
+- Bootstrap is built into Shiny
+  - e.g. modals are a direct implementation of Bootstrap 3 modals
+  - e.g. `fluidRows` and `columns` use the Bootstrap 3 grid layout
+- Some history and why Shiny is still using a 2-versions-old Bootstrap:
+  - Shiny originally had Bootstrap 2 built into it
+  - They had to migrate to Bootstrap 3 early on and it was a huge pain
+  - Now the strategy is to put additional Bootstrap elements into `bslib` and use `bslib` theming to choose Bootstrap version
 
 
 ## `bslib`
 
-- 
 - [`bslib` documentation](https://rstudio.github.io/bslib/index.html)
 - [Towards the next gen. of Shiny UI (talk by Carson Sievert)](https://youtu.be/ZIIH8WBHlLc)
+- Trang's [`bmsdash` package](https://biogit.pri.bms.com/KSR/bmsdash) implements a few BMS-styled `bslib` themes
+  - Can be used in RMarkdown documents and Shiny apps
+
+
+## Web browsers
+
+- Every web browser uses its own code base to parse and process HTML, CSS, etc.
+- Web browsers use their own style sheets! [Demo here](https://browserdefaultstyles.com/)
+  - These set the default style if a webpage's CSS doesn't define something
+### Using your browser's inspector
+- Safari: 
+  - One time: File > Preferences > Advanced > Check "Show Develop menu in menu bar"
+  - Develop > Show Web Inspector
+- Chrome: View > Developer > Developer Tools
+- Edge: [link to instructions](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview)
 
 
 ## Build a Shiny app *without* Bootstrap or any built in CSS
@@ -60,20 +110,21 @@ format: revealjs
 - Why would you want to do this?
   - Make your Shiny app look like one page integrated into a production-grade, professionally designed web site
   - You already know CSS and the Shiny defaults just keep getting in your way
+  - You want to use an alternate front-end framework (not Bootstrap)
   - You like extra work??? `¯\_(ツ)_/¯`
 
 
-## Browsers are weird
+## Takeaways
 
-- Every web browser uses its own code base to parse and process HTML, CSS, etc.
-- 
-- Web browsers use their own style sheets! [Demo here](https://browserdefaultstyles.com/)
-- 
+- Building a web page with HTML is like writing in plain text
+  - Add HTML element tags to build your content
+- Add CSS styles to customize the presentation of your HTML content
+  - Add CSS rules to define which styles to apply to which HTML elements
+- Bootstrap is a library of CSS + JS + icons 
+  - Add Bootstrap classes to use pre-defined CSS styles and JS functions
+- Beware when following online advice to add custom CSS or a custom stylesheet -- it may not work well with Bootstrap!
 
+### Try this:
 
-
-## Using your browser's inspector
-
-- Safari:
-- Chrome: 
-- Edge: 
+- Use `bslib` to experiment with newer Bootstrap versions and additional Bootstrap elements
+- Manually add a Bootstrap class to your Shiny code
