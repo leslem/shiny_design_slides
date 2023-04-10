@@ -29,11 +29,22 @@ format:
   - Links ("anchors")
   - Tables
   - Paragraphs
-- DEMO: HTML-only web page
 - In Shiny: the UI elements product HTML, and many correspond directly to HTML elements
   - You can use `htmltools::tags` to get many HTML elements that aren't included in Shiny
     - e.g. `htmltools::tags$table`, `$tr`, `$th`, `$td` to make a table manually
     - [Documentation](https://shiny.rstudio.com/reference/shiny/1.7.4/builder.html), but the list of available tags is incomplete
+
+
+## HTML only demo
+
+<a href="bootstrap_example/index.html" target="_blank">HTML-only webpage example in `bootstrap_example/index.html`</a>
+
+```{r html-example-code, results='asis'}
+bootstrap_code <- readLines("bootstrap_example/index.html")
+cat("```", sep="\n")
+cat(bootstrap_code, sep="\n")
+cat("```", sep="\n")
+```
 
 
 ## CSS (1996)
@@ -47,13 +58,37 @@ format:
 
 ## Where to use CSS?
 
-- [More information here](https://www.w3schools.com/html/html_css.asp)
+- [More information here](https://www.w3schools.com/html/bootstrap_css.asp)
 - Inline: in the style attribute of any HTML element
 - Internal: in the style element of the HTML document `<head>` section
 - External: in a standalone CSS stylesheet file
-- DEMO: add CSS to our example webpage
 - In Shiny, you can add a `style` attribute to any UI element, e.g. `p("Some example text", style="color: blue; font-size: 20px;")`
   - This is useful if the built in styling is mostly working, but you want to make one or two small changes to it
+
+- DEMO: open the HTML + CSS web page `css_example/index.html` in your web browser and in a text editor to see how the example changes with CSS from the `css_example/mystyle.css`
+
+
+## HTML + CSS demo
+
+<a href="css_example/index.html" target="_blank">HTML + CSS webpage example in `css_example/index.html`</a>
+
+### CSS code
+
+```{r css-css-example-code, results='asis'}
+css_css_code <- readLines("css_example/mystyle.css")
+cat("```", sep="\n")
+cat(css_css_code, sep="\n")
+cat("```", sep="\n")
+```
+
+### HTML code
+
+```{r css-html-example-code, results='asis'}
+css_bootstrap_code <- readLines("css_example/index.html")
+cat("```", sep="\n")
+cat(css_bootstrap_code, sep="\n")
+cat("```", sep="\n")
+```
 
 
 ## Boostrap (2011)
@@ -68,7 +103,18 @@ format:
   - Optional JavaScript interactivity, e.g. popovers, tooltips, etc.
   - Icons
 - [My favorite Bootstrap resource](https://www.w3schools.com/bootstrap/bootstrap_ver.asp)
-- DEMO: Add Bootstrap style to our example web page
+
+
+## HTML + Bootstrap demo
+
+<a href="bootstrap_example/index.html" target="_blank">HTML with Bootstrap webpage example in `bootstrap_example/index.html`</a>
+
+```{r bootstrap-example-code, results='asis'}
+bootstrap_code <- readLines("bootstrap_example/index.html")
+cat("```", sep="\n")
+cat(bootstrap_code, sep="\n")
+cat("```", sep="\n")
+```
 
 
 ## Bootstrap and Shiny
@@ -126,7 +172,8 @@ format:
   - Add Bootstrap classes to use pre-defined CSS styles and JS functions
 - Beware when following online advice to add custom CSS or a custom stylesheet -- it may not work well with Bootstrap!
 
-### Try this:
+
+## Try this
 
 - Use `bslib` to experiment with newer Bootstrap versions and additional Bootstrap elements
 - Manually add a Bootstrap class to your Shiny code
